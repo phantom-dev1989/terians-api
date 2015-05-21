@@ -11,7 +11,7 @@ import java.util.Set;
  * Created by stromero on 1/5/2015.
  */
 @NodeEntity
-public class Clazz {
+public final class Clazz {
 
     // Properties
     @GraphId

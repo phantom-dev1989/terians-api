@@ -11,7 +11,7 @@ import java.util.Set;
  * Created by stromero on 12/11/2014.
  */
 @NodeEntity
-public class Dependency {
+public final class Dependency {
 
     // Properties
     @GraphId

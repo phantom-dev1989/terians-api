@@ -12,10 +12,15 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Service
 @Transactional
-public class DependencyServiceImpl implements DependencyService {
+public final class DependencyServiceImpl implements DependencyService {
+
+    private final DependencyRepository dependencyRepository;
 
     @Autowired
-    private DependencyRepository dependencyRepository;
+    public DependencyServiceImpl(DependencyRepository dependencyRepository) {
+
+        this.dependencyRepository = dependencyRepository;
+    }
 
     @Override
     public DependenciesDTO findAllDependencies() {

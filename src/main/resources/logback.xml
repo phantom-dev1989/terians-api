@@ -22,11 +22,11 @@
     </appender>
 
     <logger name="com.terians.controller" level="DEBUG" additivity="false">
-        <appender-ref ref="FILE" />
+        <appender-ref ref="FILE"/>
     </logger>
 
     <!-- By default, the level of the root level is set to DEBUG -->
     <root level="DEBUG">
-        <appender-ref ref="FILE" />
+        <appender-ref ref="FILE"/>
     </root>
 </configuration>

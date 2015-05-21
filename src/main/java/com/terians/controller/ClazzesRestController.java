@@ -19,10 +19,15 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/api/v1/clazzes")
 @Api(value = "classes", description = "Classes API")
-public class ClazzesRestController {
+public final class ClazzesRestController {
+
+    private final ClazzService clazzService;
 
     @Autowired
-    private ClazzService clazzService;
+    public ClazzesRestController(ClazzService clazzService) {
+
+        this.clazzService = clazzService;
+    }
 
     // Needs to implement Query Parameter Logic
     @RequestMapping(method = RequestMethod.GET)

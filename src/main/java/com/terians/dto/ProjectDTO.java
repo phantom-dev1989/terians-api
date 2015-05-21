@@ -8,7 +8,7 @@ import com.wordnik.swagger.annotations.ApiModel;
  */
 @ApiModel("Project")
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
-public class ProjectDTO {
+public final class ProjectDTO {
 
     // Properties
     private String name;

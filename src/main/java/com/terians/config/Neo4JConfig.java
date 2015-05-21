@@ -17,7 +17,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @Configuration
 @EnableTransactionManagement
 @EnableNeo4jRepositories("com.terians.neo4j.repository")
-public class Neo4JConfig extends Neo4jConfiguration {
+public final class Neo4JConfig extends Neo4jConfiguration {
 
     @Autowired
     private Neo4JDatabaseProperties config;

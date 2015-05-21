@@ -11,7 +11,7 @@ import java.util.List;
  */
 @ApiModel("Vulnerabilities")
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
-public class VulnerabilitiesDTO {
+public final class VulnerabilitiesDTO {
 
     private int size;
     @JsonProperty("data")

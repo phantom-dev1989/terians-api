@@ -1,0 +1,9 @@
+com/terians/controller/PackagesRestControllerTest.class
+com/terians/controller/IssuesRestControllerTest.class
+com/terians/controller/MethodsRestControllerTest.class
+com/terians/dto/transformer/DTOTransformerUtilTest.class
+com/terians/controller/ClazzesRestControllerTest.class
+com/terians/controller/DependenciesRestControllerTest.class
+com/terians/controller/VulnerabilitiesRestControllerTest.class
+com/terians/controller/ScansRestControllerTest.class
+com/terians/controller/ProjectsRestControllerTest.class

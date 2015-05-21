@@ -17,10 +17,15 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/api/v1/methods")
 @Api(value = "methods", description = "Methods API")
-public class MethodsRestController {
+public final class MethodsRestController {
+
+    private final MethodService methodService;
 
     @Autowired
-    private MethodService methodService;
+    public MethodsRestController(MethodService methodService) {
+
+        this.methodService = methodService;
+    }
 
     @RequestMapping(method = RequestMethod.GET)
     @ApiOperation(value = "Get Methods", notes = "Returns all methods")

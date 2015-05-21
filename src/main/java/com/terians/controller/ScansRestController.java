@@ -13,10 +13,15 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/api/v1/scans")
 @Api(value = "scans", description = "Scans API")
-public class ScansRestController {
+public final class ScansRestController {
+
+    private final ScanService scanService;
 
     @Autowired
-    private ScanService scanService;
+    public ScansRestController(ScanService scanService) {
+
+        this.scanService = scanService;
+    }
 
     @RequestMapping(method = RequestMethod.GET)
     @ApiOperation(value = "Get Scans", notes = "Returns all scans")

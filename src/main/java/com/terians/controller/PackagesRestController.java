@@ -16,10 +16,15 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/api/v1/packages")
 @Api(value = "packages", description = "Packages API")
-public class PackagesRestController {
+public final class PackagesRestController {
+
+    private final PackageService packageService;
 
     @Autowired
-    private PackageService packageService;
+    public PackagesRestController(PackageService packageService) {
+
+        this.packageService = packageService;
+    }
 
     @RequestMapping(method = RequestMethod.GET)
     @ApiOperation(value = "Get Packages", notes = "Returns all packages")

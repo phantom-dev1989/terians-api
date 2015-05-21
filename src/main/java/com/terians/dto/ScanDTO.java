@@ -10,7 +10,7 @@ import java.util.Date;
  */
 @ApiModel("Scan")
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
-public class ScanDTO {
+public final class ScanDTO {
 
     // Properties
     private String teriansId;

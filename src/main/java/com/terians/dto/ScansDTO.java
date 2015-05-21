@@ -9,7 +9,7 @@ import java.util.List;
  * Created by stromero on 3/1/2015.
  */
 @ApiModel("Scans")
-public class ScansDTO {
+public final class ScansDTO {
 
     private int size;
     @JsonProperty("data")

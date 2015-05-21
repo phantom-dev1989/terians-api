@@ -13,12 +13,18 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Service
 @Transactional
-public class ProjectServiceImpl implements ProjectService {
+public final class ProjectServiceImpl implements ProjectService {
+
+    private final ProjectRepository projectRepository;
+    private final ScanRepository scanRepository;
 
     @Autowired
-    private ProjectRepository projectRepository;
-    @Autowired
-    private ScanRepository scanRepository;
+    public ProjectServiceImpl(ProjectRepository projectRepository,
+                              ScanRepository scanRepository) {
+
+        this.projectRepository = projectRepository;
+        this.scanRepository = scanRepository;
+    }
 
     @Override
     public ProjectsDTO findAllProjects() {
@@ -30,20 +36,20 @@ public class ProjectServiceImpl implements ProjectService {
     @Override
     public ProjectDTO findProject(String id, String byScan) {
 
-        if("true".equals(byScan)){
+        if ("true".equals(byScan)) {
             if (id != null) {
                 return DTOTransformerUtil
                         .transformProjectToProjectDTO(scanRepository
                                 .findProject(id));
-            }else{
+            } else {
                 return null;
             }
-        }else{
+        } else {
             if (id != null) {
                 return DTOTransformerUtil
                         .transformProjectToProjectDTO(projectRepository
                                 .findProject(id));
-            }else{
+            } else {
                 return null;
             }
         }

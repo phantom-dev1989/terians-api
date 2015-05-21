@@ -8,7 +8,7 @@ import org.springframework.data.neo4j.annotation.NodeEntity;
  * Created by stromero on 1/5/2015.
  */
 @NodeEntity
-public class Method {
+public final class Method {
 
     // Properties
     @GraphId

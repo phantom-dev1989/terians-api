@@ -12,7 +12,7 @@ import java.util.Set;
  * Created by stromero on 12/11/2014.
  */
 @NodeEntity
-public class Scan {
+public final class Scan {
 
     // Properties
     @GraphId

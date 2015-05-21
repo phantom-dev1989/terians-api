@@ -8,7 +8,7 @@ import org.springframework.data.neo4j.annotation.NodeEntity;
  * Created by stromero on 12/11/2014.
  */
 @NodeEntity
-public class Issue {
+public final class Issue {
 
     // Properties
     @GraphId

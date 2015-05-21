@@ -6,6 +6,7 @@ import com.terians.dto.MethodDTO;
 import com.terians.dto.MethodsDTO;
 import com.terians.dto.transformer.DTOTransformerUtil;
 import com.terians.neo4j.repository.ClazzRepository;
+import com.terians.neo4j.repository.DependencyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -15,10 +16,15 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Service
 @Transactional
-public class ClazzServiceImpl implements ClazzService {
+public final class ClazzServiceImpl implements ClazzService {
+
+    private final ClazzRepository clazzRepository;
 
     @Autowired
-    private ClazzRepository clazzRepository;
+    public ClazzServiceImpl(ClazzRepository clazzRepository) {
+
+        this.clazzRepository = clazzRepository;
+    }
 
     @Override
     public ClazzesDTO findAllClazzes() {

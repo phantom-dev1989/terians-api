@@ -13,10 +13,15 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Service
 @Transactional
-public class IssueServiceImpl implements IssueService {
+public final class IssueServiceImpl implements IssueService {
+
+    private final IssueRepository issueRepository;
 
     @Autowired
-    private IssueRepository issueRepository;
+    public IssueServiceImpl(IssueRepository issueRepository) {
+
+        this.issueRepository = issueRepository;
+    }
 
     @Override
     public IssueDTO findIssue(String issueId) {

@@ -11,7 +11,7 @@ import java.util.List;
  */
 @ApiModel("Issues")
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
-public class IssuesDTO {
+public final class IssuesDTO {
 
     private int size;
     @JsonProperty("data")

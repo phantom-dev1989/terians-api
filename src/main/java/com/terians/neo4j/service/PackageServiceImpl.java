@@ -12,10 +12,15 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Service
 @Transactional
-public class PackageServiceImpl implements PackageService {
+public final class PackageServiceImpl implements PackageService {
+
+    private final PackageRepository packageRepository;
 
     @Autowired
-    private PackageRepository packageRepository;
+    public PackageServiceImpl(PackageRepository packageRepository) {
+
+        this.packageRepository = packageRepository;
+    }
 
     @Override
     public PackagesDTO findAllPackages() {

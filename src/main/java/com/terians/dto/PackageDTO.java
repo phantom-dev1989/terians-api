@@ -8,7 +8,7 @@ import com.wordnik.swagger.annotations.ApiModel;
  */
 @ApiModel("Package")
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
-public class PackageDTO {
+public final class PackageDTO {
 
     // Properties
     private String teriansId;

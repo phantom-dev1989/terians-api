@@ -15,31 +15,23 @@ import java.util.Set;
 @Repository
 public interface PackageRepository extends GraphRepository<Package> {
 
-    @Query("MATCH (s:Scan {teriansId:{0}})-[:HAS_PACKAGE]->(p:Package) RETURN order by p.afferent desc Limit {1}")
-    public Set<Package> findPackagesByScanOrderedByAfferentCount(String scanId,
-                                                                 int limit);
-
-    @Query("MATCH (s:Scan {teriansId:{0}})-[:HAS_PACKAGE]->(p:Package) RETURN order by p.efferent desc Limit {1}")
-    public Set<Package> findPackagesByScanOrderedByEfferentCount(String scanId,
-                                                                 int limit);
-
     @Query("MATCH (p:Package) RETURN p")
-    public Set<Package> findAllPackages();
+    Set<Package> findAllPackages();
 
     @Query("MATCH (p:Package {teriansId:{0}}) RETURN p")
-    public Package findPackage(String packageId);
+    Package findPackage(String packageId);
 
     @Query("MATCH (p:Package {teriansId:{0}})-[:HAS_CLAZZ]->(c:Clazz) RETURN c")
-    public Set<Clazz> findAllClazzes(String packageId);
+    Set<Clazz> findAllClazzes(String packageId);
 
     @Query("MATCH (p:Package {teriansId:{0}})-[:HAS_CLAZZ]->(c:Clazz {teriansId:{1}}) RETURN c")
-    public Clazz findClazz(String packageId, String clazzId);
+    Clazz findClazz(String packageId, String clazzId);
 
     @Query("MATCH (p:Package {teriansId:{0}})-[:HAS_CLAZZ]->(c:Clazz {teriansId:{1}})-[:HAS_METHOD]->(m:Method) RETURN m")
-    public Set<Method> findAllMethods(String packageId, String clazzId);
+    Set<Method> findAllMethods(String packageId, String clazzId);
 
     @Query("MATCH (p:Package {teriansId:{0}})-[:HAS_CLAZZ]->(c:Clazz {teriansId:{1}})-[:HAS_METHOD]->"
             + "(m:Method {teriansId:{2}}) RETURN m")
-    public Method findMethod(String packageId, String clazzId, String methodId);
+    Method findMethod(String packageId, String clazzId, String methodId);
 
 }

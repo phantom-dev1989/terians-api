@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 @PropertySource(value = {"file:neo4j.properties"})
-public class Neo4JDatabaseProperties {
+public final class Neo4JDatabaseProperties {
 
     @Value("${db.path}")
     private String path;

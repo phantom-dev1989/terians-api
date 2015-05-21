@@ -13,10 +13,15 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Service
 @Transactional
-public class MethodServiceImpl implements MethodService {
+public final class MethodServiceImpl implements MethodService {
+
+    private final MethodRepository methodRepository;
 
     @Autowired
-    private MethodRepository methodRepository;
+    public MethodServiceImpl(MethodRepository methodRepository) {
+
+        this.methodRepository = methodRepository;
+    }
 
     @Override
     public MethodsDTO findAllMethods() {

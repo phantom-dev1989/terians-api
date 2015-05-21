@@ -2,7 +2,6 @@ package com.terians.controller;
 
 import com.terians.dto.*;
 import com.terians.neo4j.service.ProjectService;
-import com.terians.neo4j.service.ScanService;
 import com.wordnik.swagger.annotations.Api;
 import com.wordnik.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,10 +13,15 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/api/v1/projects")
 @Api(value = "projects", description = "Projects API")
-public class ProjectsRestController {
+public final class ProjectsRestController {
+
+    private final ProjectService projectService;
 
     @Autowired
-    private ProjectService projectService;
+    public ProjectsRestController(ProjectService projectService) {
+
+        this.projectService = projectService;
+    }
 
     @RequestMapping(method = RequestMethod.GET)
     @ApiOperation(value = "Get Projects", notes = "Returns all projects")

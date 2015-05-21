@@ -14,9 +14,9 @@ import java.util.Set;
 public interface MethodRepository extends GraphRepository<Method> {
 
     @Query("MATCH (m:Method) RETURN m")
-    public Set<Method> findAllMethods();
+    Set<Method> findAllMethods();
 
     @Query("MATCH (m:Method {teriansId:{0}}) RETURN m")
-    public Method findMethod(String methodId);
+    Method findMethod(String methodId);
 
 }
