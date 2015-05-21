@@ -19,13 +19,8 @@ import org.springframework.web.bind.annotation.RestController;
 @Api(value = "issues", description = "Issues API")
 public final class IssuesRestController {
 
-    private final IssueService issueService;
-
     @Autowired
-    public IssuesRestController(IssueService issueService) {
-
-        this.issueService = issueService;
-    }
+    private IssueService issueService;
 
     @RequestMapping(method = RequestMethod.GET)
     @ApiOperation(value = "Get Issues", notes = "Returns all issues")

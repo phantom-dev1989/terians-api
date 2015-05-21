@@ -15,13 +15,8 @@ import org.springframework.web.bind.annotation.*;
 @Api(value = "projects", description = "Projects API")
 public final class ProjectsRestController {
 
-    private final ProjectService projectService;
-
     @Autowired
-    public ProjectsRestController(ProjectService projectService) {
-
-        this.projectService = projectService;
-    }
+    private ProjectService projectService;
 
     @RequestMapping(method = RequestMethod.GET)
     @ApiOperation(value = "Get Projects", notes = "Returns all projects")

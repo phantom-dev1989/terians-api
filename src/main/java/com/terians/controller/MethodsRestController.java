@@ -19,13 +19,8 @@ import org.springframework.web.bind.annotation.RestController;
 @Api(value = "methods", description = "Methods API")
 public final class MethodsRestController {
 
-    private final MethodService methodService;
-
     @Autowired
-    public MethodsRestController(MethodService methodService) {
-
-        this.methodService = methodService;
-    }
+    private MethodService methodService;
 
     @RequestMapping(method = RequestMethod.GET)
     @ApiOperation(value = "Get Methods", notes = "Returns all methods")

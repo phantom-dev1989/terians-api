@@ -19,13 +19,8 @@ import org.springframework.web.bind.annotation.RestController;
 @Api(value = "vulnerabilities", description = "Vulnerabilities API")
 public final class VulnerabilitiesRestController {
 
-    private final VulnerabilityService vulnerabilityService;
-
     @Autowired
-    public VulnerabilitiesRestController(VulnerabilityService vulnerabilityService) {
-
-        this.vulnerabilityService = vulnerabilityService;
-    }
+    private VulnerabilityService vulnerabilityService;
 
     @RequestMapping(method = RequestMethod.GET)
     @ApiOperation(value = "Get Vulnerabilities", notes = "Returns all vulnerabilities")

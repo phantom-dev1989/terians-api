@@ -1,5 +1,6 @@
 package com.terians.config;
 
+import com.terians.neo4j.repository.*;
 import com.terians.neo4j.service.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

@@ -14,13 +14,8 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 public final class PackageServiceImpl implements PackageService {
 
-    private final PackageRepository packageRepository;
-
     @Autowired
-    public PackageServiceImpl(PackageRepository packageRepository) {
-
-        this.packageRepository = packageRepository;
-    }
+    private PackageRepository packageRepository;
 
     @Override
     public PackagesDTO findAllPackages() {

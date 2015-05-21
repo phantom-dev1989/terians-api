@@ -18,13 +18,8 @@ import org.springframework.web.bind.annotation.RestController;
 @Api(value = "dependencies", description = "Dependencies API")
 public final class DependenciesRestController {
 
-    private final DependencyService dependencyService;
-
     @Autowired
-    public DependenciesRestController(DependencyService dependencyService) {
-
-        this.dependencyService = dependencyService;
-    }
+    private DependencyService dependencyService;
 
     @RequestMapping(method = RequestMethod.GET)
     @ApiOperation(value = "Get Dependencies", notes = "Returns all dependencies")

@@ -18,13 +18,8 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 public final class ClazzServiceImpl implements ClazzService {
 
-    private final ClazzRepository clazzRepository;
-
     @Autowired
-    public ClazzServiceImpl(ClazzRepository clazzRepository) {
-
-        this.clazzRepository = clazzRepository;
-    }
+    private ClazzRepository clazzRepository;
 
     @Override
     public ClazzesDTO findAllClazzes() {

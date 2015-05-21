@@ -15,16 +15,10 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 public final class ProjectServiceImpl implements ProjectService {
 
-    private final ProjectRepository projectRepository;
-    private final ScanRepository scanRepository;
-
     @Autowired
-    public ProjectServiceImpl(ProjectRepository projectRepository,
-                              ScanRepository scanRepository) {
-
-        this.projectRepository = projectRepository;
-        this.scanRepository = scanRepository;
-    }
+    private ProjectRepository projectRepository;
+    @Autowired
+    private ScanRepository scanRepository;
 
     @Override
     public ProjectsDTO findAllProjects() {

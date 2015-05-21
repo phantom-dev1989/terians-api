@@ -17,16 +17,10 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 public final class ScanServiceImpl implements ScanService {
 
-    private final ScanRepository scanRepository;
-    private final IssueRepository issueRepository;
-
     @Autowired
-    public ScanServiceImpl(ScanRepository scanRepository,
-                           IssueRepository issueRepository) {
-
-        this.scanRepository = scanRepository;
-        this.issueRepository = issueRepository;
-    }
+    private ScanRepository scanRepository;
+    @Autowired
+    private IssueRepository issueRepository;
 
     @Override
     public ScansDTO findAllScans() {

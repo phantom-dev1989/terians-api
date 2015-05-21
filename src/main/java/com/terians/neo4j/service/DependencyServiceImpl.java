@@ -14,13 +14,8 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 public final class DependencyServiceImpl implements DependencyService {
 
-    private final DependencyRepository dependencyRepository;
-
     @Autowired
-    public DependencyServiceImpl(DependencyRepository dependencyRepository) {
-
-        this.dependencyRepository = dependencyRepository;
-    }
+    private DependencyRepository dependencyRepository;
 
     @Override
     public DependenciesDTO findAllDependencies() {
