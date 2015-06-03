@@ -23,18 +23,18 @@ public final class DTOTransformerUtil {
         ClazzesDTO clazzesDTO = new ClazzesDTO();
         List<ClazzDTO> clazzDTOList = new ArrayList<>();
 
-        for (Clazz e : clazzSet) {
-            ClazzDTO clazzDTO = new ClazzDTO();
-            clazzDTO.setTeriansId(e.getTeriansId());
-            clazzDTO.setAfferent(e.getAfferent());
-            clazzDTO.setCyclomaticCom(e.getCyclomaticCom());
-            clazzDTO.setEfferent(e.getEfferent());
-            clazzDTO.setName(e.getName());
-            clazzDTO.setSourceCode(e.getSourceCode());
-            clazzDTO.setLineNumbers(e.getLineNumbers());
-
-            clazzDTOList.add(clazzDTO);
-        }
+        clazzSet.stream().forEach(
+                e -> {
+                    ClazzDTO clazzDTO = new ClazzDTO();
+                    clazzDTO.setTeriansId(e.getTeriansId());
+                    clazzDTO.setAfferent(e.getAfferent());
+                    clazzDTO.setCyclomaticCom(e.getCyclomaticCom());
+                    clazzDTO.setEfferent(e.getEfferent());
+                    clazzDTO.setName(e.getName());
+                    clazzDTO.setSourceCode(e.getSourceCode());
+                    clazzDTO.setLineNumbers(e.getLineNumbers());
+                    clazzDTOList.add(clazzDTO);
+        });
 
         clazzesDTO.setClazzDTOList(clazzDTOList);
         clazzesDTO.setSize(clazzDTOList.size());
@@ -74,17 +74,17 @@ public final class DTOTransformerUtil {
 
         DependenciesDTO dependenciesDTO = new DependenciesDTO();
         List<DependencyDTO> dependencyDTOList = new ArrayList<>();
-        for (Dependency e : dependencySet) {
 
-            DependencyDTO dependencyDTO = new DependencyDTO();
-            dependencyDTO.setTeriansId(e.getTeriansId());
-            dependencyDTO.setDescription(e.getDescription());
-            dependencyDTO.setFileName(e.getFileName());
-            dependencyDTO.setFilePath(e.getFilePath());
-            dependencyDTO.setLicense(e.getLicense());
-
-            dependencyDTOList.add(dependencyDTO);
-        }
+        dependencySet.stream().forEach(
+                e -> {
+                    DependencyDTO dependencyDTO = new DependencyDTO();
+                    dependencyDTO.setTeriansId(e.getTeriansId());
+                    dependencyDTO.setDescription(e.getDescription());
+                    dependencyDTO.setFileName(e.getFileName());
+                    dependencyDTO.setFilePath(e.getFilePath());
+                    dependencyDTO.setLicense(e.getLicense());
+                    dependencyDTOList.add(dependencyDTO);
+                });
 
         dependenciesDTO.setDependencyDTOList(dependencyDTOList);
         dependenciesDTO.setSize(dependencyDTOList.size());
@@ -116,23 +116,23 @@ public final class DTOTransformerUtil {
 
         IssuesDTO issuesDTO = new IssuesDTO();
         List<IssueDTO> issueDTOList = new ArrayList<>();
-        for (Issue e : issueSet) {
 
-            IssueDTO issueDTO = new IssueDTO();
-            issueDTO.setTeriansId(e.getTeriansId());
-            issueDTO.setCategory(e.getCategory());
-            issueDTO.setClassName(e.getClassName());
-            issueDTO.setDescription(e.getDescription());
-            issueDTO.setFileName(e.getFileName());
-            issueDTO.setFilePath(e.getFilePath());
-            issueDTO.setLineNumber(e.getLineNumber());
-            issueDTO.setPackageName(e.getPackageName());
-            issueDTO.setSeverity(e.getSeverity());
-            issueDTO.setTechDebtMinutes(e.getTechDebtMinutes());
-            issueDTO.setIssue(e.getIssue());
-
-            issueDTOList.add(issueDTO);
-        }
+        issueSet.stream().forEach(
+                e -> {
+                    IssueDTO issueDTO = new IssueDTO();
+                    issueDTO.setTeriansId(e.getTeriansId());
+                    issueDTO.setCategory(e.getCategory());
+                    issueDTO.setClassName(e.getClassName());
+                    issueDTO.setDescription(e.getDescription());
+                    issueDTO.setFileName(e.getFileName());
+                    issueDTO.setFilePath(e.getFilePath());
+                    issueDTO.setLineNumber(e.getLineNumber());
+                    issueDTO.setPackageName(e.getPackageName());
+                    issueDTO.setSeverity(e.getSeverity());
+                    issueDTO.setTechDebtMinutes(e.getTechDebtMinutes());
+                    issueDTO.setIssue(e.getIssue());
+                    issueDTOList.add(issueDTO);
+                });
 
         issuesDTO.setIssueDTOList(issueDTOList);
         issuesDTO.setSize(issueDTOList.size());
@@ -146,19 +146,19 @@ public final class DTOTransformerUtil {
 
         PackagesDTO packagesDTO = new PackagesDTO();
         List<PackageDTO> packageDTOList = new ArrayList<>();
-        for (Package e : packageSet) {
 
-            PackageDTO packageDTO = new PackageDTO();
-            packageDTO.setTeriansId(e.getTeriansId());
-            packageDTO.setAfferent(e.getAfferent());
-            packageDTO.setCyclomaticCom(e.getCyclomaticCom());
-            packageDTO.setEfferent(e.getEfferent());
-            packageDTO.setName(e.getName());
-            packageDTO.setInstability(e.getInstability());
-            packageDTO.setAbstractness(e.getAbstractness());
-
-            packageDTOList.add(packageDTO);
-        }
+        packageSet.stream().forEach(
+                e -> {
+                    PackageDTO packageDTO = new PackageDTO();
+                    packageDTO.setTeriansId(e.getTeriansId());
+                    packageDTO.setAfferent(e.getAfferent());
+                    packageDTO.setCyclomaticCom(e.getCyclomaticCom());
+                    packageDTO.setEfferent(e.getEfferent());
+                    packageDTO.setName(e.getName());
+                    packageDTO.setInstability(e.getInstability());
+                    packageDTO.setAbstractness(e.getAbstractness());
+                    packageDTOList.add(packageDTO);
+                });
 
         packagesDTO.setPackageDTOList(packageDTOList);
         packagesDTO.setSize(packageDTOList.size());
@@ -180,14 +180,14 @@ public final class DTOTransformerUtil {
 
         ProjectsDTO projectsDTO = new ProjectsDTO();
         List<ProjectDTO> projectDTOList = new ArrayList<>();
-        for (Project e : projectSet) {
 
-            ProjectDTO projectDTO = new ProjectDTO();
-            projectDTO.setTeriansId(e.getTeriansId());
-            projectDTO.setName(e.getName());
-
-            projectDTOList.add(projectDTO);
-        }
+        projectSet.stream().forEach(
+                e -> {
+                    ProjectDTO projectDTO = new ProjectDTO();
+                    projectDTO.setTeriansId(e.getTeriansId());
+                    projectDTO.setName(e.getName());
+                    projectDTOList.add(projectDTO);
+                });
 
         projectsDTO.setProjectDTOList(projectDTOList);
         projectsDTO.setSize(projectDTOList.size());
@@ -210,17 +210,17 @@ public final class DTOTransformerUtil {
 
         ScansDTO scansDTO = new ScansDTO();
         List<ScanDTO> scanDTOList = new ArrayList<>();
-        for (Scan e : scanSet) {
 
-            ScanDTO scanDTO = new ScanDTO();
-            scanDTO.setTeriansId(e.getTeriansId());
-            scanDTO.setDate(e.getDate());
-            scanDTO.setProjectVersion(e.getProjectVersion());
-            scanDTO.setCircularDependencyCount(e.getCircularDependencyCount());
-            scanDTO.setLoc(e.getLoc());
-
-            scanDTOList.add(scanDTO);
-        }
+        scanSet.stream().forEach(
+                e -> {
+                    ScanDTO scanDTO = new ScanDTO();
+                    scanDTO.setTeriansId(e.getTeriansId());
+                    scanDTO.setDate(e.getDate());
+                    scanDTO.setProjectVersion(e.getProjectVersion());
+                    scanDTO.setCircularDependencyCount(e.getCircularDependencyCount());
+                    scanDTO.setLoc(e.getLoc());
+                    scanDTOList.add(scanDTO);
+                });
 
         scansDTO.setScanDTOList(scanDTOList);
         scansDTO.setSize(scanDTOList.size());
@@ -233,17 +233,18 @@ public final class DTOTransformerUtil {
 
         MethodsDTO methodsDTO = new MethodsDTO();
         List<MethodDTO> methodDTOList = new ArrayList<>();
-        for (Method e : methodSet) {
 
-            MethodDTO methodDTO = new MethodDTO();
-            methodDTO.setTeriansId(e.getTeriansId());
-            methodDTO.setAfferent(e.getAfferent());
-            methodDTO.setName(e.getName());
-            methodDTO.setCyclomaticCom(e.getCyclomaticCom());
-            methodDTO.setEfferent(e.getEfferent());
-            methodDTO.setSourceCode(e.getSourceCode());
-            methodDTOList.add(methodDTO);
-        }
+        methodSet.stream().forEach(
+                e -> {
+                    MethodDTO methodDTO = new MethodDTO();
+                    methodDTO.setTeriansId(e.getTeriansId());
+                    methodDTO.setAfferent(e.getAfferent());
+                    methodDTO.setName(e.getName());
+                    methodDTO.setCyclomaticCom(e.getCyclomaticCom());
+                    methodDTO.setEfferent(e.getEfferent());
+                    methodDTO.setSourceCode(e.getSourceCode());
+                    methodDTOList.add(methodDTO);
+                });
 
         methodsDTO.setMethodDTOList(methodDTOList);
         methodsDTO.setSize(methodDTOList.size());
@@ -270,19 +271,19 @@ public final class DTOTransformerUtil {
         VulnerabilitiesDTO vulnerabilitiesDTO = new VulnerabilitiesDTO();
         List<VulnerabilityDTO> vulnerabilityDTOList = new ArrayList<>();
 
-        for (Vulnerability e : vulnerabilitySet) {
+        vulnerabilitySet.stream().forEach(
+                e -> {
+                    VulnerabilityDTO vulnerabilityDTO = new VulnerabilityDTO();
+                    vulnerabilityDTO.setTeriansId(e.getTeriansId());
+                    vulnerabilityDTO.setName(e.getName());
+                    vulnerabilityDTO.setCve(e.getCve());
+                    vulnerabilityDTO.setCvssScore(e.getCvssScore());
+                    vulnerabilityDTO.setCwe(e.getCwe());
+                    vulnerabilityDTO.setDescription(e.getDescription());
+                    vulnerabilityDTO.setSeverity(e.getSeverity());
+                    vulnerabilityDTOList.add(vulnerabilityDTO);
+                });
 
-            VulnerabilityDTO vulnerabilityDTO = new VulnerabilityDTO();
-            vulnerabilityDTO.setTeriansId(e.getTeriansId());
-            vulnerabilityDTO.setName(e.getName());
-            vulnerabilityDTO.setCve(e.getCve());
-            vulnerabilityDTO.setCvssScore(e.getCvssScore());
-            vulnerabilityDTO.setCwe(e.getCwe());
-            vulnerabilityDTO.setDescription(e.getDescription());
-            vulnerabilityDTO.setSeverity(e.getSeverity());
-
-            vulnerabilityDTOList.add(vulnerabilityDTO);
-        }
 
         vulnerabilitiesDTO.setVulnerabilityDTOList(vulnerabilityDTOList);
         vulnerabilitiesDTO.setSize(vulnerabilityDTOList.size());
